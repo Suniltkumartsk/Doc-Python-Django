@@ -1,0 +1,35 @@
+/* Custom styles for the register page */
+body {
+    background: #f8f9fa;
+}
+
+form {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px 40px 25px 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+legend {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.form-check-label {
+    font-size: 0.95rem;
+}
