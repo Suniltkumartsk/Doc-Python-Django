@@ -51,5 +51,13 @@ A Django-based medical care web application for managing doctor and patient regi
 - `static/` - Static files (CSS, images)
 - `media/` - Uploaded media files
 
+## Project Output:
+![alt text](<Screenshot 2026-03-30 132738.png>)
+![alt text](<Screenshot 2026-03-30 132101.png>)
+![alt text](<Screenshot 2026-03-30 132124.png>)
+![alt text](<Screenshot 2026-03-30 132549.png>)
+![alt text](<Screenshot 2026-03-30 132601.png>)
+
+
 ## License
 This project is licensed under the MIT License.
