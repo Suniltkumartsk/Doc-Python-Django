@@ -1,82 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedicalCare</title>
-    {% load static %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-  <!-- navbar -->
-    {% comment %} Header starts here {% endcomment %}
-    
-    <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-          
-          <div class="col-md-3 mb-2 mb-md-0">
-            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none"></a>
-            <img src="{% static 'logo.jpg' %}" class="img-fluid" width="200" height="200" alt="">
-            
-            
-            
-          </div>
-          
-    
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2" >Home</a></li>
-            <li><a href="#" class="nav-link px-2">Features</a></li>
-            <li><a href="#" class="nav-link px-2">Pricing</a></li>
-            <li><a href="#" class="nav-link px-2">FAQs</a></li>
-            <li><a href="#" class="nav-link px-2">About</a></li>
-          </ul>
-    
-          <div class="col-md-3 text-end">
-            <a href="{% url 'login' %}"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
-            <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary">Sign-up</button></a>
-          </div>
-        </header>
-      </div>
-      <!-- navbar ends -->
-      {% comment %} header ends {% endcomment %}
+{% extends 'base.html' %}
+{% load static %}
 
-      {% comment %} heros starts here {% endcomment %}
-      <div class="container col-xxl-8 px-4 py-5">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-          <div class="col-10 col-sm-8 col-lg-6">
-            <img src="static/doc.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
-          </div>
-          <div class="col-lg-6">
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">DOCTORS APPIONTMENT APPLICATION</h1>
-            <p class="lead">Here you can make a appointment with doctors.Visiting the doctor can sometimes be a daunting experience, but with a little preparation, you can make the most out of your appointment. Whether it's a routine check-up or a visit for a specific concern, being prepared helps ensure that you get the best care possible. Here are some tips to help you prepare for your next doctor's appointment.</p>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Get started</button>
-              
-            </div>
-          </div>
+{% block title %}MedicalCare - Home{% endblock %}
+
+{% block content %}
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <img src="{% static 'doc.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Doctor Illustration" width="700" height="500" loading="lazy">
         </div>
-      </div>
-
-      {% comment %} heros ends {% endcomment %}
-
-      {% comment %} footer starts here {% endcomment %}
-
-      <div class="container">
-        <footer class="py-3 my-4">
-          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
-          </ul>
-          <p class="text-center text-body-secondary">&copy; 2024 Company, Inc</p>
-        </footer>
-      </div>
-
-      {% comment %} footer ends {% endcomment %}
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    
-</body>
-</html>
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Doctor Appointment Application</h1>
+            <p class="lead">Here you can book an appointment with our specialist doctors. Being prepared helps ensure you get the best care possible.</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                {% if request.session.user %}
+                    <a href="{% url 'home' %}" class="btn btn-primary btn-lg px-4 me-md-2">View Doctors</a>
+                {% else %}
+                    <a href="{% url 'signup' %}" class="btn btn-primary btn-lg px-4 me-md-2">Get Started</a>
+                    <a href="{% url 'login' %}" class="btn btn-outline-secondary btn-lg px-4">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

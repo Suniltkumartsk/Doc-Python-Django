@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}MedicalCare - My Appointments{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h2 class="fw-bold mb-1">My Appointments</h2>
+    <p class="text-muted mb-4">All your booked appointments are listed below.</p>
+
+    {% if appointments %}
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle shadow-sm bg-white rounded">
+            <thead class="table-primary">
+                <tr>
+                    <th>#</th>
+                    <th>Doctor</th>
+                    <th>Date & Time</th>
+                    <th>Patient Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Contact</th>
+                    <th>Problem</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for apt in appointments %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td class="fw-semibold">{{ apt.doc_name }}</td>
+                    <td>{{ apt.p_date }}</td>
+                    <td>{{ apt.p_name }}</td>
+                    <td>{{ apt.p_age }}</td>
+                    <td>{{ apt.gender }}</td>
+                    <td>{{ apt.contact }}</td>
+                    <td>{{ apt.problem }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        You have no appointments yet. <a href="{% url 'home' %}">Book one now!</a>
+    </div>
+    {% endif %}
+
+    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Back to Doctors</a>
+</div>
+{% endblock %}

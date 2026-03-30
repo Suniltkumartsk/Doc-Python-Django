@@ -1,48 +1,20 @@
-<html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
-  </head>
-    <style>
-      body {
-        text-align: center;
-        padding: 40px 0;
-        background: #EBF0F5;
-      }
-        h1 {
-          color: #88B04B;
-          font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
-          font-weight: 900;
-          font-size: 40px;
-          margin-bottom: 10px;
-        }
-        p {
-          color: #404F5E;
-          font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
-          font-size:20px;
-          margin: 0;
-        }
-      i {
-        color: #9ABC66;
-        font-size: 100px;
-        line-height: 200px;
-        margin-left:-15px;
-      }
-      .card {
-        background: white;
-        padding: 60px;
-        border-radius: 4px;
-        box-shadow: 0 2px 3px #C8D0D8;
-        display: inline-block;
-        margin: 0 auto;
-      }
-    </style>
-    <body>
-      <div class="card">
-      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-        <i class="checkmark">✓</i>
-      </div>
-        <h1>Success</h1> 
-        <p>We received your Appointment request<br/> we'll be  contacting  you shortly!</p>
-      </div>
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}MedicalCare - Booking Confirmed{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center">
+    <div class="card shadow-lg d-inline-block px-5 py-5" style="border-radius: 16px;">
+        <div style="border-radius: 50%; height: 120px; width: 120px; background: #F8FAF5; margin: 0 auto 20px;"
+             class="d-flex align-items-center justify-content-center">
+            <span style="font-size: 60px; color: #9ABC66;">✓</span>
+        </div>
+        <h1 class="fw-bold" style="color: #88B04B;">Booking Confirmed!</h1>
+        <p class="text-muted fs-5 mt-2">We received your appointment request.<br>We'll be contacting you shortly!</p>
+        <div class="d-flex gap-3 justify-content-center mt-4">
+            <a href="{% url 'home' %}" class="btn btn-primary px-4">View More Doctors</a>
+            <a href="{% url 'appointments' %}" class="btn btn-outline-primary px-4">My Appointments</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
